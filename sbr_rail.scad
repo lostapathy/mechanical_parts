@@ -2,7 +2,7 @@
 // http://amzn.com/B00BKWILCG.  May or may not work with other rails.
 // Model will be aligned on the y-axis
 
-module sbr_rail(d=12, l=100, tolerance=0) {
+module sbr_rail(d=12, l, tolerance=0) {
   base_w = lookup(d, [
     [12,30],
     [16,35],
@@ -49,7 +49,7 @@ module sbr_rail(d=12, l=100, tolerance=0) {
         cube([d,axis/2,l]);
       
       // triangle to form angles.
-      linear_extrude(h=l)
+      linear_extrude(height=l)
         polygon(points=[[(base_w-d)/2,axis/2], [base_w/2,axis]   , [(base_w-d)/2+d,axis/2]]);
     }
 
