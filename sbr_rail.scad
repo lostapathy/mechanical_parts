@@ -78,13 +78,13 @@ module sbr_bearing(d=12, tolerance=0) {
   ]);
   height = lookup(d, [
     [12,28],
-    [16,45],
-    [20,48],
-    [25,60],
-    [30,70],
-    [35,80],
-    [40,90],
-    [50,120]
+    [16,33],
+    [20,39],
+    [25,47],
+    [30,56],
+    [35,63],
+    [40,72],
+    [50,92]
   ]);
   
   top_t = lookup(d, [
@@ -122,10 +122,10 @@ module sbr_bearing(d=12, tolerance=0) {
     translate([0,0,-length/2]){
       // This takes out the bottom web
       hull() {
-        rotate(a=[0,0,30])
+        rotate(a=[0,0,40])
           translate([0,-100,0])
             cube([0.1,100,length*2]);
-        rotate(a=[0,0,-30])
+        rotate(a=[0,0,-40])
           translate([0,-100,0])
             cube([0.1,100,length*2]);
       }
