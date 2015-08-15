@@ -21,21 +21,21 @@ module lm_bearing(d=8, tolerance=0) {
 
   difference() {
     cylinder(d=outside_d, h=length);
-    translate([0,0,-1])
-      cylinder(d=d,h=length+2);
+    translate([0,0,-0.1])
+      cylinder(d=d,h=length+0.2);
     
     translate([0,0,(length-retainer_spacing-retainer_w)/2]) {
       // the 1 mm recess depth is not to a spec
-      lm_bearing_retainer_recess(retainer_w, outside_d-1);
+      lm_bearing_retainer_recess(retainer_w, outside_d-1, outside_d);
       translate([0,0,retainer_spacing])
-        lm_bearing_retainer_recess(retainer_w, outside_d-1);
+        lm_bearing_retainer_recess(retainer_w, outside_d-1, outside_d);
     }
   }
 }
 
-module lm_bearing_retainer_recess(retainer_w,inner_d) {
+module lm_bearing_retainer_recess(retainer_w,inner_d, outside_d) {
   difference() {
-    cylinder(h=retainer_w,d=inner_d*2);
+    cylinder(h=retainer_w,d=outside_d+0.1);
     cylinder(h=retainer_w,d=inner_d);
   }
 }
